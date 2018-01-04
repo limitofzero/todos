@@ -1,19 +1,23 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import "../less/todo-list.less";
 
 class TodoList extends Component {
     getList() {
-        return this.props.todos.map((todo, index) =>
-            <li key={index}>{todo.text}</li>
-        );
+        const {todos} = this.props;
+        if(todos.length) {
+            return <ul className="todo-list">
+                {todos.map((todo, index) => <li key={index}>{todo.text}</li>)}
+            </ul>;
+        }
+
+        return null;
     }
 
 
     render() {
         return (
-            <ul>
-                {this.getList()}
-            </ul>
+            this.getList()
         );
     }
 }
