@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import {addTodo} from "../actions";
 import "../less/input-form.less";
 
 class InputForm extends Component {
@@ -12,8 +13,9 @@ class InputForm extends Component {
     }
 
     onKeyPress(event) {
-        if(event.key === 'Enter') {
-            console.log('Enter pressed');
+        if(event.key === 'Enter' && this.state.value) {
+            this.props.addTodo(this.state.value);
+            this.setState({value: ''});
         }
     }
 
@@ -34,4 +36,4 @@ class InputForm extends Component {
     }
 }
 
-export default connect(null)(InputForm);
+export default connect(null, {addTodo})(InputForm);
