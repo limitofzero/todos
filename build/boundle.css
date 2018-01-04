@@ -1,1 +1,1 @@
-.app{display:block;width:80%;margin:auto}.app .title{font-size:5em;font-style:italic;text-align:center}
+.input-form{width:100%;box-sizing:border-box}.input-form input{font-size:1.2em;font-style:italic;border:none;padding:5px;outline:none;box-sizing:border-box}.todo{width:80%;margin:auto;box-shadow:5px 12px 10px -5px #ddd;border:1px solid #ddd}.app{display:block;width:90%;margin:auto}.app .title{font-size:5em;font-style:italic;text-align:center}
