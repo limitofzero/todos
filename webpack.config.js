@@ -16,7 +16,7 @@ const ASSET_PATH = process.env.ASSET_PATH || '';
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-    devtool: 'source-map',
+    devtool: NODE_ENV === 'development' ?  'source-map' : null,
     entry: [
         './src/index.js'
     ],

@@ -1,1 +1,2 @@
 export const ADD_TODO = "ADD_TODO";
+export const REVERT_COMPLETE_TODO = "REVERT_COMPLETE_TODO";

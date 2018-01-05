@@ -1,13 +1,20 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import {revertCompleteTodo} from "../actions";
+import TodoElement from "./TodoElement";
 import "../less/todo-list.less";
 
 class TodoList extends Component {
     getList() {
-        const {todos} = this.props;
+        const {todos, revertCompleteTodo} = this.props;
         if(todos.length) {
-            return <ul className="todo-list">
-                {todos.map((todo, index) => <li key={index}>{todo.text}</li>)}
+            return <ul className="todo-list">{
+                    todos.map((todo, index) =>
+                    <TodoElement key={index}
+                                 text={todo.text}
+                                 isComplete={todo.isComplete}
+                                 revertComplete={revertCompleteTodo.bind(this, index)}/>)
+            }
             </ul>;
         }
 
@@ -28,4 +35,4 @@ function mapStateToProps(state) {
     }
 }
 
-export default connect(mapStateToProps, null)(TodoList);
+export default connect(mapStateToProps, {revertCompleteTodo})(TodoList);
