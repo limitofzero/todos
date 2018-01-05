@@ -7,6 +7,7 @@ import "../less/todo-list.less";
 class TodoList extends Component {
     getList() {
         const {todos, revertCompleteTodo} = this.props;
+        console.log(todos);
         if(todos.length) {
             return <ul className="todo-list">{
                     todos.map((todo, index) =>

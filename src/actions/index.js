@@ -7,10 +7,10 @@ export function addTodo(text) {
     };
 }
 
-export function revertCompleteTodo(todoIndex) {
+export function revertCompleteTodo(index) {
     return {
         type: REVERT_COMPLETE_TODO,
-        payload: {todoIndex}
+        payload: {index}
     };
 }
 

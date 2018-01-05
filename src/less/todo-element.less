@@ -1,12 +1,17 @@
 .todo-element {
   display: flex;
   align-items: center;
-  padding: 0.3em;
+  padding: 0.4em;
   border-bottom: 1px solid #DDD;
 
   .todo-text {
-    margin-left: 3px;
+    margin-left: 0.2em;
     flex: 1;
+
+    &_completed {
+      text-decoration: line-through;
+      color: #DDD;
+    }
   }
 
   &:last-child {
@@ -15,8 +20,15 @@
 
   .complete {
     width: 1.3em;
+    border: 0.1em solid #DDD;
     height: 1.3em;
     border-radius: 50%;
-    border: 1px solid aliceblue;
+
+    &_completed {
+      background: url("assets/svg/check.svg");
+      background-size: contain;
+    }
   }
+
+
 }

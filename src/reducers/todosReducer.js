@@ -5,11 +5,13 @@ export default function todosReducer(state = [], action) {
 
     switch(type) {
         case ADD_TODO:
-            return [{text: payload.text, completed: false}].concat(state);
+            return [{text: payload.text, isComplete: false}].concat(state);
         case REVERT_COMPLETE_TODO:
             return state.map((todo, index) => {
+                console.log('before check', todo, payload);
                 if(index === payload.index) {
                     todo.isComplete = !todo.isComplete;
+                    console.log('index is index', todo);
                 }
 
                 return todo;
