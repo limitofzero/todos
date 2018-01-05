@@ -19,7 +19,7 @@
   }
 
   .complete {
-    width: 1.3em;
+    min-width: 1.3em;
     border: 0.1em solid #DDD;
     height: 1.3em;
     border-radius: 50%;
@@ -30,5 +30,15 @@
     }
   }
 
+  &:hover {
+    .remover {
+      background: url("assets/svg/remove.svg");
+      background-size: contain;
+    }
+  }
 
+  .remover {
+    min-width: 1.3em;
+    height: 1.3em;
+  }
 }

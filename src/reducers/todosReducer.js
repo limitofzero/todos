@@ -1,4 +1,4 @@
-import {ADD_TODO, REVERT_COMPLETE_TODO} from "../actions/constants";
+import {ADD_TODO, REMOVE_TODO, REVERT_COMPLETE_TODO} from "../actions/constants";
 
 export default function todosReducer(state = [], action) {
     const {type, payload} = action;
@@ -8,14 +8,14 @@ export default function todosReducer(state = [], action) {
             return [{text: payload.text, isComplete: false}].concat(state);
         case REVERT_COMPLETE_TODO:
             return state.map((todo, index) => {
-                console.log('before check', todo, payload);
                 if(index === payload.index) {
                     todo.isComplete = !todo.isComplete;
-                    console.log('index is index', todo);
                 }
 
                 return todo;
             });
+        case REMOVE_TODO:
+            return state.filter((el, index) => index !== payload.index);
         default:
             return state;
     }
