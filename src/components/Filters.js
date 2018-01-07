@@ -1,12 +1,17 @@
-import React, { Component } from "react";
+import React from "react";
+import "../less/filter-list.less";
 
+export default function Filters({filters, filterClick}) {
+    const filtersEls = filters.map((filter, index) => {
+        const filterClass = "filter" + (filter.active ? " active" : "");
+        return <span className={filterClass}
+                     key={index}
+                     onClick={filterClick.bind(null, filter.name)}>{filter.name.toLowerCase()}</span>
+    });
 
-export default class Filters extends Component {
-    render(){
-        return (
-            <div className="app">
-
-            </div>
-        );
-    };
+    return (
+        <div className="filter-list">
+            {filtersEls}
+        </div>
+    );
 }

@@ -1,24 +1,24 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import "../less/info-form.less";
-import {clearCompleted} from "../actions";
+import {clearCompleted, filterChanged} from "../actions";
+import Filters from "./Filters";
 
 class InfoForm extends Component {
     getClearCompletedButton() {
         const {todoComplete, clearCompleted} = this.props;
-        if(todoComplete) {
-            return (
-                <span className="text-btn" onClick={clearCompleted}>
+        const visStyle = {visibility: todoComplete ? "" : "hidden"};
+
+        return (
+            <span className="text-btn"
+                  onClick={clearCompleted} style={visStyle}>
                     Clear completed
                 </span>
-            );
-        }
-
-        return null;
+        )
     }
 
     render() {
-         const {todoCount, todoComplete} = this.props;
+         const {todoCount, todoComplete, filters, filterChanged} = this.props;
          if(!todoCount) {
              return null;
          }
@@ -28,6 +28,7 @@ class InfoForm extends Component {
                  <div className="items-left">
                      {todoCount - todoComplete + " items left"}
                  </div>
+                 <Filters filters={filters} filterClick={filterChanged}/>
                  {this.getClearCompletedButton()}
              </div>
          );
@@ -35,9 +36,10 @@ class InfoForm extends Component {
 }
 
 export default connect((state) => {
-    const {todos} = state;
+    const {todos, filters} = state;
     return {
         todoCount: todos.length,
-        todoComplete: todos.filter(todo => todo.isComplete).length
+        todoComplete: todos.filter(todo => todo.isComplete).length,
+        filters
     }
-}, {clearCompleted})(InfoForm);
+}, {clearCompleted, filterChanged})(InfoForm);
