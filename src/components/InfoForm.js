@@ -26,7 +26,7 @@ class InfoForm extends Component {
          return (
              <div className="info-form">
                  <div className="items-left">
-                     {todoComplete + " items left"}
+                     {todoCount - todoComplete + " items left"}
                  </div>
                  {this.getClearCompletedButton()}
              </div>
