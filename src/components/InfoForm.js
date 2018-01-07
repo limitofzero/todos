@@ -35,8 +35,9 @@ class InfoForm extends Component {
 }
 
 export default connect((state) => {
+    const {todos} = state;
     return {
-        todoCount: state.length,
-        todoComplete: state.filter(todo => todo.isComplete).length
+        todoCount: todos.length,
+        todoComplete: todos.filter(todo => todo.isComplete).length
     }
 }, {clearCompleted})(InfoForm);

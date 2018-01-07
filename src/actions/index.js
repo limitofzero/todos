@@ -1,4 +1,4 @@
-import {ADD_TODO, CLEAR_COMPLETED, REMOVE_TODO, REVERT_COMPLETE_TODO} from "./constants";
+import {ADD_TODO, CLEAR_COMPLETED, FILTER_CHANGED, REMOVE_TODO, REVERT_COMPLETE_TODO} from "./constants";
 
 export function addTodo(text) {
     return {
@@ -24,6 +24,13 @@ export function removeTodo(index) {
 export function clearCompleted(index) {
     return {
         type: CLEAR_COMPLETED
+    };
+}
+
+export function filterChanged(filterName) {
+    return {
+        type: FILTER_CHANGED,
+        payload: {filterName}
     };
 }
 

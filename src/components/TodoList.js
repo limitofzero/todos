@@ -33,7 +33,7 @@ class TodoList extends Component {
 
 function mapStateToProps(state) {
     return {
-        todos: state
+        todos: state.todos
     }
 }
 
