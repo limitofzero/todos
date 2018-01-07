@@ -1,4 +1,4 @@
-import {ADD_TODO, REMOVE_TODO, REVERT_COMPLETE_TODO} from "./constants";
+import {ADD_TODO, CLEAR_COMPLETED, REMOVE_TODO, REVERT_COMPLETE_TODO} from "./constants";
 
 export function addTodo(text) {
     return {
@@ -18,6 +18,12 @@ export function removeTodo(index) {
     return {
         type: REMOVE_TODO,
         payload: {index}
+    };
+}
+
+export function clearCompleted(index) {
+    return {
+        type: CLEAR_COMPLETED
     };
 }
 

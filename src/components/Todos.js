@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import InputForm from "./InputForm";
 import TodoList from "./TodoList";
+import InfoForm from "./InfoForm";
 import "../less/todo.less"
 
 export default class Todos extends Component {
@@ -9,6 +10,7 @@ export default class Todos extends Component {
             <div className="todo">
                 <InputForm/>
                 <TodoList/>
+                <InfoForm/>
             </div>
         );
     };

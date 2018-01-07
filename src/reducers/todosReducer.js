@@ -1,4 +1,4 @@
-import {ADD_TODO, REMOVE_TODO, REVERT_COMPLETE_TODO} from "../actions/constants";
+import {ADD_TODO, CLEAR_COMPLETED, REMOVE_TODO, REVERT_COMPLETE_TODO} from "../actions/constants";
 
 export default function todosReducer(state = [], action) {
     const {type, payload} = action;
@@ -16,6 +16,8 @@ export default function todosReducer(state = [], action) {
             });
         case REMOVE_TODO:
             return state.filter((el, index) => index !== payload.index);
+        case CLEAR_COMPLETED:
+            return state.filter(todo => !todo.isComplete);
         default:
             return state;
     }

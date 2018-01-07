@@ -27,7 +27,7 @@ class InputForm extends Component {
         return (
             <div className="input-form">
                 <input type="text"
-                       placeholder="Введите текст..."
+                       placeholder="What need to be done?"
                        value={this.state.value}
                        onChange={this.onValueChanged.bind(this)}
                        onKeyPress={this.onKeyPress.bind(this)}/>

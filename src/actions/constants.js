@@ -1,3 +1,4 @@
 export const ADD_TODO = "ADD_TODO";
 export const REVERT_COMPLETE_TODO = "REVERT_COMPLETE_TODO";
 export const REMOVE_TODO = "REMOVE_TODO";
+export const CLEAR_COMPLETED = "CLEAR_COMPLETED";
